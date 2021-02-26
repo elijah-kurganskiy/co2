@@ -1,4 +1,4 @@
-import { Co2Model } from "./models/Co2.model";
+import { Co2Model } from "./models/co2.model";
 
 export namespace Co2 {
   export class Add {

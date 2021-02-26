@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
 import { Co2 } from "./co2.actions";
-import { Co2StateModel } from "./models/Co2-state.model";
-import { Co2Model } from "./models/Co2.model";
+import { Co2StateModel } from "./models/co2-state.model";
+import { Co2Model } from "./models/co2.model";
 import { v4 as uuid } from "uuid";
 
 @State<Co2StateModel>({
