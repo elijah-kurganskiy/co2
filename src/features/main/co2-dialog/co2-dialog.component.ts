@@ -6,9 +6,11 @@ import {
   MatDialogRef,
 } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
+import { map, switchMap } from "rxjs/operators";
 import { sectors } from "../../../store/co2-store/const/sector.const";
 import { Co2Model } from "../../../store/co2-store/models/co2.model";
 import { Co2ModalDialogComponent } from "../co2-modal-dialog/co2-modal-dialog.component";
+import { FeelingDialogComponent } from "../feeling-dialog/feeling-dialog.component";
 import {
   DialogDataInputModel,
   DialogDataOutputModel,
@@ -25,6 +27,7 @@ export class Co2DialogComponent implements OnInit {
 
   co2Form = new FormGroup({
     sector: this.sector,
+    emoji: new FormControl(":)", [Validators.required]),
     value: new FormControl(0, [
       Validators.required,
       Validators.pattern(/^[+]?\d+([.]\d+)?$/),
@@ -32,8 +35,9 @@ export class Co2DialogComponent implements OnInit {
   });
 
   constructor(
+    public dialog: MatDialog,
     private readonly dialogRef: MatDialogRef<
-      Co2ModalDialogComponent,
+      Co2DialogComponent,
       DialogDataOutputModel
     >,
     @Inject(MAT_DIALOG_DATA) private readonly data: DialogDataInputModel
@@ -48,6 +52,19 @@ export class Co2DialogComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  selectEmoji() {
+    this.dialog
+      .open<FeelingDialogComponent, string, string>(FeelingDialogComponent, {
+        data: this.co2Form.value.emoji,
+      })
+      .afterClosed()
+      .subscribe((result) =>
+        this.co2Form.patchValue({
+          emoji: result,
+        })
+      );
   }
 
   submitForm(): void {

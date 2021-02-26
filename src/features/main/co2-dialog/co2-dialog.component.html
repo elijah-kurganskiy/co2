@@ -20,6 +20,11 @@
         This field is required
       </mat-error>
     </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Feeling</mat-label>
+      <input matInput type="text" [value]="co2Form.value.emoji" />
+    </mat-form-field>
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
