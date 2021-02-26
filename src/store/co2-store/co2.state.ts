@@ -18,7 +18,7 @@ import { v4 as uuid } from "uuid";
       {
         co2Value: 10,
         feeling: ":)",
-        id: "das",
+        id: "das2",
         sector: "SECTOR 2",
       },
     ],
@@ -42,10 +42,26 @@ export class Co2State {
     const newItem: Co2Model = {
       ...action.payload,
     };
-
     ctx.setState({
       ...state,
       items: [...state.items, newItem],
+    });
+  }
+
+  @Action(Co2.Edit)
+  editCo2Item(ctx: StateContext<Co2StateModel>, action: Co2.Edit) {
+    const state = ctx.getState();
+    const newItem: Co2Model = {
+      ...action.payload,
+    };
+    ctx.setState({
+      ...state,
+      items: state.items.map((item) => {
+        if (item.id === action.payload.id) {
+          return action.payload;
+        }
+        return item;
+      }),
     });
   }
 }
