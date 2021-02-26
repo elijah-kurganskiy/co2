@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
+import { EmojiModule } from "@ctrl/ngx-emoji-mart/ngx-emoji";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 import { NgxsStoragePluginModule } from "@ngxs/storage-plugin";
 import { NgxsModule } from "@ngxs/store";
@@ -15,7 +16,7 @@ import { MainPageComponent } from "../features/main/page/main-page.component";
 import { MaterialModule } from "../material-module";
 import { Co2State } from "../store/co2-store/co2.state";
 import { AppComponent } from "./app.component";
-
+import { PickerModule } from "@ctrl/ngx-emoji-mart";
 @NgModule({
   exports: [RouterModule],
   imports: [
@@ -50,6 +51,8 @@ import { AppComponent } from "./app.component";
       key: Co2State,
     }),
     MaterialModule,
+    EmojiModule,
+    PickerModule,
   ],
   declarations: [
     AppComponent,

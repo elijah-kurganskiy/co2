@@ -1,21 +1,18 @@
 <h2 mat-dialog-title>Select feeling</h2>
 <form [formGroup]="form">
-  <div mat-dialog-content>
-    <mat-form-field appearance="fill" class="form-selector">
-      <mat-label>Choose an emoji</mat-label>
-      <select matNativeControl formControlName="emoji">
-        <option *ngFor="let emoji of emojis" [value]="emoji">
-          {{ emoji }}
-        </option>
-      </select>
-      <mat-error *ngIf="form.get('emoji').hasError('required')">
-        This field is required
-      </mat-error>
-    </mat-form-field>
-  </div>
+  <emoji-mart
+    [darkMode]="false"
+    title="Pick your emoji…"
+    [include]="['people']"
+    [autoFocus]="true"
+    [isNative]="true"
+    (emojiClick)="submit($event)"
+    [useButton]="true"
+  ></emoji-mart>
+
   <div mat-dialog-actions>
-    <button mat-button type="submit" cdkFocusInitial (click)="submit()">
-      Submit
+    <button mat-button type="submit" cdkFocusInitial (click)="close()">
+      Cancel
     </button>
   </div>
 </form>

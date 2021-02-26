@@ -9,7 +9,7 @@ import { DialogDataInputModel } from "../co2-dialog/models/dialog-data-input.mod
   styleUrls: ["./feeling-dialog.component.css"],
 })
 export class FeelingDialogComponent implements OnInit {
-  emojis = [":)", ":(", ":D", ":|", "8)"];
+  emojis = [":smiley:", ":santa:"];
 
   form = new FormGroup({
     emoji: new FormControl(null, [Validators.required]),
@@ -26,9 +26,11 @@ export class FeelingDialogComponent implements OnInit {
     });
   }
 
-  public submit() {
-    if (this.form.valid) {
-      this.dialogRef.close(this.form.value.emoji);
-    }
+  close() {
+    this.dialogRef.close();
+  }
+
+  public submit(event: any) {
+    this.dialogRef.close(event.emoji.id);
   }
 }

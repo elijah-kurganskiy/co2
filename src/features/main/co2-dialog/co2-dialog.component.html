@@ -25,6 +25,7 @@
       <mat-label>Feeling</mat-label>
       <input
         readonly
+        hidden
         formControlName="emoji"
         matInput
         type="text"
@@ -32,6 +33,11 @@
         (click)="selectEmoji()"
         [value]="co2Form.value.emoji"
       />
+      <ngx-emoji
+        [isNative]="true"
+        [emoji]="{ id: co2Form.get('emoji').value }"
+        size="30"
+      ></ngx-emoji>
       <button matSuffix mat-button (click)="selectEmoji()">Edit</button>
       <mat-error *ngIf="co2Form.get('emoji').hasError('required')">
         This field is required
