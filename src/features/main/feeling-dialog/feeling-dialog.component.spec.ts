@@ -1,16 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 
-import { FeelingDialogComponent } from './feeling-dialog.component';
+import { FeelingDialogComponent } from "./feeling-dialog.component";
 
-describe('FeelingDialogComponent', () => {
+describe("FeelingDialogComponent", () => {
   let component: FeelingDialogComponent;
   let fixture: ComponentFixture<FeelingDialogComponent>;
+  let matDialogRef = jasmine.createSpyObj(["close"]);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FeelingDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [FeelingDialogComponent],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: matDialogRef,
+        },
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: "",
+        },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +30,7 @@ describe('FeelingDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngxs/store";
-import { Co2 } from "../../../store/co2-store/co2.actions";
+import { Co2 } from "../../../store/co2-store/co2";
 import { Co2State } from "../../../store/co2-store/co2.state";
 import { Co2Model } from "../../../store/co2-store/models/co2.model";
 

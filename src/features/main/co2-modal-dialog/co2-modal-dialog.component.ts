@@ -5,7 +5,7 @@ import { Store } from "@ngxs/store";
 import { iif, Observable } from "rxjs";
 import { filter, first, map, mergeMap, switchMap, tap } from "rxjs/operators";
 import { v4 as uuid } from "uuid";
-import { Co2 } from "../../../store/co2-store/co2.actions";
+import { Co2 } from "../../../store/co2-store/co2";
 import { Co2State } from "../../../store/co2-store/co2.state";
 import { Co2Model } from "../../../store/co2-store/models/co2.model";
 import { Co2DialogComponent } from "../co2-dialog/co2-dialog.component";

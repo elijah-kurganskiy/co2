@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Co2Model } from "../../../store/co2-store/models/co2.model";
 
 @Component({
   selector: "app-main-page",
@@ -7,9 +6,5 @@ import { Co2Model } from "../../../store/co2-store/models/co2.model";
   templateUrl: "./main-page.component.html",
 })
 export class MainPageComponent {
-  dataSource: Co2Model[];
-
   constructor() {}
-
-  addItem() {}
 }
