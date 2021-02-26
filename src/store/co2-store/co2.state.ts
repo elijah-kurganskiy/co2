@@ -8,20 +8,7 @@ import { v4 as uuid } from "uuid";
 @State<Co2StateModel>({
   name: "co2State",
   defaults: {
-    items: [
-      {
-        co2Value: 10,
-        feeling: ":)",
-        id: "das",
-        sector: "SECTOR1",
-      },
-      {
-        co2Value: 10,
-        feeling: ":)",
-        id: "das2",
-        sector: "SECTOR2",
-      },
-    ],
+    items: [],
   },
 })
 @Injectable()

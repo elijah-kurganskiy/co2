@@ -10,3 +10,11 @@
 :host ::ng-deep .mat-column-actions {
   text-align: right;
 }
+
+.red-cell {
+  color: red;
+}
+
+.green-cell {
+  color: green;
+}

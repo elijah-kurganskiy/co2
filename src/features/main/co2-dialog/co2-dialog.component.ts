@@ -47,6 +47,7 @@ export class Co2DialogComponent implements OnInit {
     this.co2Form.reset({
       value: this.data.item?.co2Value ?? 0,
       sector: this.data.item?.sector ?? "",
+      emoji: this.data.item?.feeling ?? "",
     });
   }
 

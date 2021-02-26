@@ -4,6 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
+import { NgxsStoragePluginModule } from "@ngxs/storage-plugin";
 import { NgxsModule } from "@ngxs/store";
 import { environment } from "../environments/environment";
 import { Co2DialogComponent } from "../features/main/co2-dialog/co2-dialog.component";
@@ -42,7 +43,12 @@ import { AppComponent } from "./app.component";
     NgxsModule.forRoot([Co2State], {
       developmentMode: !environment.production,
     }),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot({
+      disabled: environment.production,
+    }),
+    NgxsStoragePluginModule.forRoot({
+      key: Co2State,
+    }),
     MaterialModule,
   ],
   declarations: [
