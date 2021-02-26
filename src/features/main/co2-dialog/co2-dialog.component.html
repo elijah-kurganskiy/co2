@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Edit</h2>
+<h2 mat-dialog-title>{{ isEditMode ? "Edit" : "Add" }}</h2>
 <form [formGroup]="co2Form">
   <div mat-dialog-content>
     <mat-form-field appearance="fill" class="form-selector">
