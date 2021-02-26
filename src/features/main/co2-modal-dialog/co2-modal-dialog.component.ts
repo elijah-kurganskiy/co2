@@ -47,7 +47,7 @@ export class Co2ModalDialogComponent implements OnInit {
               tap((result) => {
                 const newId = uuid();
                 return this.store.dispatch(
-                  new Co2.Add({ id: newId, ...result.item })
+                  new Co2.Add({ ...result.item, id: newId })
                 );
               })
             );
