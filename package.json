@@ -16,7 +16,7 @@
     "@ctrl/ngx-emoji-mart": "^5.0.2",
     "@ngxs/storage-plugin": "^3.7.1",
     "@ngxs/store": "^3.7.1",
-    "core-js": "2",
+    "core-js": "3.9.0",
     "rxjs": "^6.5.2",
     "sass": "^1.32.8",
     "tslib": "^2.0.0",
