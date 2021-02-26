@@ -5,11 +5,8 @@ import {
   MatDialog,
   MatDialogRef,
 } from "@angular/material/dialog";
-import { ActivatedRoute, Router } from "@angular/router";
-import { filter, map, switchMap } from "rxjs/operators";
+import { filter } from "rxjs/operators";
 import { sectors } from "../../../store/co2-store/const/sector.const";
-import { Co2Model } from "../../../store/co2-store/models/co2.model";
-import { Co2ModalDialogComponent } from "../co2-modal-dialog/co2-modal-dialog.component";
 import { FeelingDialogComponent } from "../feeling-dialog/feeling-dialog.component";
 import {
   DialogDataInputModel,

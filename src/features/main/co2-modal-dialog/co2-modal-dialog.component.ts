@@ -67,7 +67,7 @@ export class Co2ModalDialogComponent implements OnInit {
       DialogDataInputModel,
       DialogDataOutputModel
     >(Co2DialogComponent, {
-      width: "250px",
+      width: "260px",
       data: {
         item: item ?? null,
       },
