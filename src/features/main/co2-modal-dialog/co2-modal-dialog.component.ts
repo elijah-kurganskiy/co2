@@ -32,9 +32,8 @@ export class Co2ModalDialogComponent implements OnInit {
         map((paramMap) => paramMap.get("id")),
         switchMap((id) => {
           if (id) {
-            return this.store.select(Co2State.findItemById).pipe(
+            return this.store.selectOnce(Co2State.findItemById).pipe(
               map((filterFn) => filterFn(id)),
-              first(),
               switchMap((item) => this.openDialog(item)),
               tap(() => this.closeDialog()),
               filter((result) => !!result),
