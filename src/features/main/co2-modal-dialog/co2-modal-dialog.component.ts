@@ -62,7 +62,6 @@ export class Co2ModalDialogComponent implements OnInit {
   }
 
   openDialog(item?: Co2Model): Observable<DialogDataOutputModel> {
-    console.log("OPEN", item);
     const dialogRef = this.dialog.open<
       Co2DialogComponent,
       DialogDataInputModel,

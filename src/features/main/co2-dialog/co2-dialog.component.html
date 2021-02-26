@@ -2,7 +2,7 @@
 <form [formGroup]="co2Form">
   <div mat-dialog-content>
     <mat-form-field appearance="fill" class="form-selector">
-      <mat-label>Choose an option</mat-label>
+      <mat-label>Choose a sector</mat-label>
       <select matNativeControl formControlName="sector">
         <option *ngFor="let sectorItem of sectors" [value]="sectorItem">
           {{ sectorItem }}
@@ -21,24 +21,16 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="form-input">
       <mat-label>Feeling</mat-label>
       <input
         readonly
         formControlName="emoji"
         matInput
         type="text"
+        (click)="selectEmoji()"
         [value]="co2Form.value.emoji"
       />
-      <button
-        mat-button
-        matSuffix
-        mat-icon-button
-        aria-label="Edit"
-        (click)="selectEmoji()"
-      >
-        <mat-icon>edit</mat-icon>
-      </button>
       <mat-error *ngIf="co2Form.get('emoji').hasError('required')">
         This field is required
       </mat-error>

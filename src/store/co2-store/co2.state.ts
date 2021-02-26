@@ -51,9 +51,6 @@ export class Co2State {
   @Action(Co2.Edit)
   editCo2Item(ctx: StateContext<Co2StateModel>, action: Co2.Edit) {
     const state = ctx.getState();
-    const newItem: Co2Model = {
-      ...action.payload,
-    };
     ctx.setState({
       ...state,
       items: state.items.map((item) => {
@@ -62,6 +59,15 @@ export class Co2State {
         }
         return item;
       }),
+    });
+  }
+
+  @Action(Co2.Delete)
+  removeItem(ctx: StateContext<Co2StateModel>, action: Co2.Delete) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      items: state.items.filter((item) => item.id !== action.id),
     });
   }
 }
