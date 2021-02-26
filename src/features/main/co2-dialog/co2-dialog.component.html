@@ -3,9 +3,9 @@
   <div mat-dialog-content>
     <mat-form-field appearance="fill" class="form-selector">
       <mat-label>Choose an option</mat-label>
-      <select matNativeControl [formControl]="sector">
-        <option *ngFor="let sector of sectors" [value]="sector">
-          {{ sector }}
+      <select matNativeControl formControlName="sector">
+        <option *ngFor="let sectorItem of sectors" [value]="sectorItem">
+          {{ sectorItem }}
         </option>
       </select>
       <mat-error *ngIf="co2Form.get('sector').hasError('required')">
