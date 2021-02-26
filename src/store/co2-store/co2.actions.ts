@@ -3,7 +3,7 @@ import { Co2Model } from "./models/co2.model";
 export namespace Co2 {
   export class Add {
     static readonly type = "[CO2] Add";
-    constructor(public payload: Omit<Co2Model, "id">) {}
+    constructor(public payload: Co2Model) {}
   }
 
   export class Edit {

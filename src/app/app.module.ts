@@ -11,6 +11,7 @@ import { Co2ModalDialogComponent } from "../features/main/co2-modal-dialog/co2-m
 import { Co2TableComponent } from "../features/main/co2-table/co2-table.component";
 import { MainPageComponent } from "../features/main/page/main-page.component";
 import { MaterialModule } from "../material-module";
+import { Co2State } from "../store/co2-store/co2.state";
 import { AppComponent } from "./app.component";
 
 @NgModule({
@@ -27,13 +28,17 @@ import { AppComponent } from "./app.component";
             path: "add-item",
             component: Co2ModalDialogComponent,
           },
+          {
+            path: "edit-item/:id",
+            component: Co2ModalDialogComponent,
+          },
         ],
       },
       { path: "**", redirectTo: "home" },
     ]),
     FormsModule,
     ReactiveFormsModule,
-    NgxsModule.forRoot([], {
+    NgxsModule.forRoot([Co2State], {
       developmentMode: !environment.production,
     }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
