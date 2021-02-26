@@ -73,7 +73,7 @@ export class Co2DialogComponent implements OnInit {
       this.dialogRef.close({
         item: {
           id: this.data.item?.id,
-          feeling: ":)",
+          feeling: formValue.emoji,
           co2Value: formValue.value,
           sector: formValue.sector,
         },

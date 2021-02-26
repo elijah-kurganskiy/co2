@@ -23,7 +23,25 @@
 
     <mat-form-field>
       <mat-label>Feeling</mat-label>
-      <input matInput type="text" [value]="co2Form.value.emoji" />
+      <input
+        readonly
+        formControlName="emoji"
+        matInput
+        type="text"
+        [value]="co2Form.value.emoji"
+      />
+      <button
+        mat-button
+        matSuffix
+        mat-icon-button
+        aria-label="Edit"
+        (click)="selectEmoji()"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <mat-error *ngIf="co2Form.get('emoji').hasError('required')">
+        This field is required
+      </mat-error>
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
